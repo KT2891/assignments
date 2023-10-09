@@ -19,18 +19,21 @@
         <td><%= book.body %></td>
         <td>
           <% if book.favorited_by?(current_user) %>
-            <%= link_to book_favorite_path(book), method: :delete  do %>
+            <%= link_to book_favorites_path(book), method: :delete  do %>
               <div class="text-danger">
                 <span class="fa-solid fa-heart"></span><%= book.favorites.count %>
               </div>
             <% end %>
           <% else %>
               <div class="text_primary">
-                <%= link_to book_favorite_path(book), method: :post do %>
+                <%= link_to book_favorites_path(book), method: :post do %>
                   <span class="fa-solid fa-heart text-primary"></span><%= book.favorites.count %>
                 <% end %>
               </div>
           <% end %>
+        </td>
+        <td>
+          コメント数：<%= book.book_comments.count %>
         </td>
       </tr>
     <% end %>
