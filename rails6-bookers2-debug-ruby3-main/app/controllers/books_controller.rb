@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :ensure_correct_book_user, only: [:edit, :update]
+  before_action :ensure_correct_book_user, only: [:edit, :update, :destroy]
 
   def show
     @book = Book.new
