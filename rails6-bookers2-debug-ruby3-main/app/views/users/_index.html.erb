@@ -9,6 +9,7 @@
   <tbody>
     <% users.each do |user| %>
       <tr id="follower_buttons_<%= user.id %>">
+        <!-- 複数カラムの更新を出来なかったため列単位で更新 -->
         <%= render "users/user", user: user %>
       </tr>
     <% end %>

@@ -16,6 +16,9 @@
     <th>followers</th>
     <th><%= link_to user.followers.count, user_followers_path(user) %></th>
   </tr>
+  <tr>
+    <th><%= link_to "フォローする", user_relationships_path(user), method: :post, class: "btn btn-success" %></th>
+  </tr>
 </table>
 
 <div class='row'>
