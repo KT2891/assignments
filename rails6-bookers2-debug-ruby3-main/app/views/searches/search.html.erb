@@ -1,0 +1,53 @@
+<!-- 検索レンジが"User"の場合 -->
+<% if @range == "User" %>
+  <h1>Users search for "<%= @word %>"</h1>
+  <!-- 検索結果が存在しない場合 -->
+  <% if @users.empty? %>
+    <p>I searched it but I couldn't find anything.</p>
+  <% else%>
+    <table class = "table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Introduction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image(50, 50) %></td>
+          <td><%= link_to user.name, user_path(user) %></td>
+          <td><%= user.introduction %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<!-- 検索レンジが"Book"の場合 -->
+<% else %>
+  <h1>Books search for "<%= @text %>"</h1>
+  <!-- 検索結果が存在しない場合 -->
+  <% if @books.empty? %>
+    <p>I searched it but I couldn't find anything.</p>
+  <% else%>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |book| %>
+        <tr>
+          <td><%= image_tag book.user.get_profile_image(50, 50) %></td>
+          <td><%= link_to book.title, book_path(book) %></td>
+          <td><%= book.body %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>
