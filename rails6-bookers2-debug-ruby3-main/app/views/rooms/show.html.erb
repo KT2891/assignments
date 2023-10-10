@@ -1,0 +1,22 @@
+<div class="conrainer">
+  <div class="row">
+    <div>
+      <% @entries.each do |entry| %>
+        <% unless entry.user.id == current_user.id %>
+          <h2><%= entry.user.name %>さんとのトークルーム</h2>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-2 mr-10">
+      <%= link_to "戻る", users_path, class: "btn btn-danger"%>
+    </div>
+  </div>
+</div>
+<div id="messages">
+ <%= render "messages/content", messages: @room.messages%>
+</div>
+
+<div class="form">
+  <%= render "messages/form", message: @message, room: @room %>
+</div>
+

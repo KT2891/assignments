@@ -1,0 +1,3 @@
+$('#messages').html("<%= j(render "messages/content", messages: @messages ) %>");
+
+$('#form').html("<%= j(render "messages/form", message: @message, room: @room ) %>");

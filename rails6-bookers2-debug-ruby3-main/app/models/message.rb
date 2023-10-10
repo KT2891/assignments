@@ -2,6 +2,6 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :room
 
-  validates :conetnt, presence: true,
+  validates :content, presence: true,
                       length: { maximum: 140 }
 end

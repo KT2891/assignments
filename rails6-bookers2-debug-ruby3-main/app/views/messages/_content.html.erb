@@ -1,0 +1,16 @@
+<div class="conrainer">
+  <div class="row">
+    <div class="col-6 mx-auto my-10">
+        <% messages.each do |message| %>
+          <div>
+            <% if message.user.id == current_user.id %>
+              <p class="text-left"><%= message.content %></p>
+            <% else %>
+              <p class="text-right"><%= message.content %></p>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+

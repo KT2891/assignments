@@ -1,24 +1,5 @@
-<table class='table'>
-  <tr><%= image_tag user.get_profile_image(50, 50) %></tr>
-  <tr>
-	  <th>name</th>
-	  <th><%= user.name %></th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th><%= user.introduction %></th>
-  </tr>
-  <tr>
-    <th>follows</th>
-    <th><%= link_to user.following.count, user_following_path(user) %></th>
-  </tr>
-  <tr>
-    <th>followers</th>
-    <th><%= link_to user.followers.count, user_followers_path(user) %></th>
-  </tr>
-  <tr>
-    <th><%= link_to "フォローする", user_relationships_path(user), method: :post, class: "btn btn-success" %></th>
-  </tr>
+<table class="table" id="user_info">
+  <%= render "users/sidebar", user: user %>
 </table>
 
 <div class='row'>
