@@ -1,5 +1,5 @@
 <%= form_with model: message, url: messages_path, local: false, method: :post do |f| %>
   <%= f.text_field :content %>
   <%= f.hidden_field :room_id, value: room.id %>
-  <%= f.submit %>
+
 <% end %>

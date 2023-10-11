@@ -5,10 +5,15 @@ class BooksController < ApplicationController
     @book = Book.new
     @show_book = Book.find(params[:id])
     @book_comment = BookComment.new
+    FootStanp.create(book_id: params[:id])
   end
 
   def index
-    @books = Book.includes(:favorites).sort_by{ |book| -book.favorites.count }
+    today = Time.current.at_end_of_day
+    week = (today - 6.day).at_end_of_day
+    @books = Book.includes(:favorited_users).
+              sort_by{
+                      |book| -book.favorited_users.includes(:favorite).where(created_at: week...today).size }
     @book = Book.new
   end
 

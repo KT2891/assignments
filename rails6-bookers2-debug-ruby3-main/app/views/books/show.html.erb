@@ -15,8 +15,7 @@
             <%= @show_book.user.name %>
             <% end %>
           </td>
-          <td><%= link_to @show_book.title, @show_book %></td>
-          <td><%= @show_book.body %></td>
+          <%= render "books/data", book: @show_book %>
           <% if @show_book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@show_book), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', @show_book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
